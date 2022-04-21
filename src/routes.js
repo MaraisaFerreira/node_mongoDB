@@ -1,7 +1,7 @@
 const route = require('express').Router();
 
-const { homeGet } = require('./controllers/homeController');
+const { petsGet } = require('./controllers/petsController');
 
-route.get('/', homeGet);
+route.get('/', petsGet);
 
 module.exports = route;
