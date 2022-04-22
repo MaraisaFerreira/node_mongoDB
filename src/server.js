@@ -5,6 +5,9 @@ const app = express();
 
 const mongoose = require('mongoose');
 
+const helmet = require('helmet');
+const csrf = require('csurf');
+
 mongoose
 	.connect(process.env.URL_CONNECTION)
 	.then(() => {
@@ -16,6 +19,7 @@ mongoose
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
+const { checkCsrfErr, csrfToken } = require('./middlewares/csrfMiddleware');
 const routes = require('./routes');
 
 const sessionOpt = session({
@@ -31,8 +35,12 @@ const sessionOpt = session({
 	},
 });
 
+app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(sessionOpt);
+app.use(csrf());
+app.use(checkCsrfErr);
+app.use(csrfToken);
 app.use(routes);
 
 app.on('db_connection_started', () => {
