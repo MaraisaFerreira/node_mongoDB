@@ -2,7 +2,7 @@
 	"name": "node_mongodb",
 	"version": "1.0.0",
 	"description": "",
-	"main": "src/index.js",
+	"main": "src/server.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "nodemon .",
@@ -12,8 +12,10 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"connect-mongo": "^4.6.0",
 		"dotenv": "^16.0.0",
 		"express": "^4.17.3",
+		"express-session": "^1.17.2",
 		"mongoose": "^6.3.0"
 	}
 }
