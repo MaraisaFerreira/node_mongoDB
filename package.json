@@ -18,6 +18,6 @@
 		"express": "^4.17.3",
 		"express-session": "^1.17.2",
 		"helmet": "^5.0.2",
-		"mongoose": "^6.3.0"
+		"mongoose": "^6.11.4"
 	}
 }
